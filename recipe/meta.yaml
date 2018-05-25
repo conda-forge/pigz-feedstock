@@ -1,5 +1,5 @@
 {% set name = "pigz" %}
-{% set version = "2.3.4" %}
+{% set version = "2.4" %}
 {% set sha256 = "6f031fa40bc15b1d80d502ff91f83ba14f4b079e886bfb83221374f7bf5c8f9a" %}
 
 package:
@@ -27,13 +27,13 @@ requirements:
     - posix            # [win]
     - pthreads-win32   # [win]
     - m2w64-toolchain  # [win]
-    - toolchain
-    - zlib 1.2.*
+    - {{ compiler('c') }}
+    - zlib
   run:
     - vc 9             # [win and py27]
     - vc 10            # [win and py34]
     - vc 14            # [win and py>=35]
-    - zlib 1.2.*
+    - zlib
 
 test:
   commands:
@@ -57,3 +57,4 @@ about:
 extra:
   recipe-maintainers:
     - epruesse
+    - mariusvniekerk
