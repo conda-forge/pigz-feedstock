@@ -20,6 +20,7 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - python           # [win]
     - vc 9             # [win and py27]
     - vc 10            # [win and py34]
@@ -27,13 +28,13 @@ requirements:
     - posix            # [win]
     - pthreads-win32   # [win]
     - m2w64-toolchain  # [win]
-    - toolchain
-    - zlib 1.2.*
+  host:
+    - zlib
   run:
     - vc 9             # [win and py27]
     - vc 10            # [win and py34]
     - vc 14            # [win and py>=35]
-    - zlib 1.2.*
+    - zlib
 
 test:
   commands:
