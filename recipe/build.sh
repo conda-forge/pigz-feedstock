@@ -11,6 +11,11 @@ CFLAGS="$CFLAGS -O3 -I$PREFIX/include"
 # its default rules for compiling C files.
 export TARGET_ARCH=
 
+# Set `CC` on Windows where it is not set already.
+if [ -z "$CC" ]; then
+    export CC="gcc"
+fi
+
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 make test
 
