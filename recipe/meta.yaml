@@ -17,9 +17,10 @@ build:
 requirements:
   build:
     - posix            # [win]
-    - pthreads-win32   # [win]
     - m2w64-toolchain  # [win]
     - toolchain
+  host:
+    - pthreads-win32   # [win]
     - zlib 1.2.*
   run:
     - zlib 1.2.*
