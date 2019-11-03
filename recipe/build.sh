@@ -11,7 +11,7 @@ CFLAGS="$CFLAGS -O3 -I$PREFIX/include"
 # its default rules for compiling C files.
 export TARGET_ARCH=
 
-make -j$CPU_COUNT LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
+make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 make test
 
 # Use different variable to get "binprefix" on win:
