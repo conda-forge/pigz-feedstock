@@ -21,9 +21,9 @@ requirements:
     - posix                      # [win]
   host:
     - pthreads-win32             # [win]
-    - zlib 1.2.*
+    - zlib
   run:
-    - zlib 1.2.*
+    - zlib
 
 test:
   commands:
