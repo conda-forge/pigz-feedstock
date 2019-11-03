@@ -16,7 +16,7 @@ make test
 
 # Use different variable to get "binprefix" on win:
 if [ -n "$LIBRARY_BIN" ]; then
-    cp pigz unpigz $LIBRARY_BIN
+    cp pigz unpigz "$LIBRARY_BIN"
 else
-    cp pigz unpigz $PREFIX/bin
+    cp pigz unpigz "$PREFIX/bin"
 fi
