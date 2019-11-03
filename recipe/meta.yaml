@@ -16,11 +16,11 @@ build:
 
 requirements:
   build:
-    - m2w64-toolchain  # [win]
-    - toolchain
-    - posix            # [win]
+    - {{ compiler("c") }}        # [unix]
+    - {{ compiler("m2w64_c") }}  # [win]
+    - posix                      # [win]
   host:
-    - pthreads-win32   # [win]
+    - pthreads-win32             # [win]
     - zlib 1.2.*
   run:
     - zlib 1.2.*
