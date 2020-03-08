@@ -11,12 +11,19 @@ CFLAGS="$CFLAGS -O3 -I$PREFIX/include"
 # its default rules for compiling C files.
 export TARGET_ARCH=
 
-make -j$CPU_COUNT LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
+# Set `CC` on Windows where it is not set already.
+if [ -z "$CC" ]; then
+    export CC="gcc"
+fi
+
+make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 make test
 
 # Use different variable to get "binprefix" on win:
 if [ -n "$LIBRARY_BIN" ]; then
-    cp pigz unpigz $LIBRARY_BIN
+    mkdir -p "$LIBRARY_BIN"
+    cp pigz unpigz "$LIBRARY_BIN"
 else
-    cp pigz unpigz $PREFIX/bin
+    mkdir -p "$PREFIX/bin"
+    cp pigz unpigz "$PREFIX/bin"
 fi
