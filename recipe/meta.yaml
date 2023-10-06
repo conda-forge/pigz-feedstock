@@ -12,13 +12,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler("c") }}        # [unix]
     - {{ compiler("m2w64_c") }}  # [win]
     - posix                      # [win]
+    - make                       # [unix]
   host:
     - pthreads-win32             # [win]
     - zlib
@@ -45,3 +46,5 @@ about:
 extra:
   recipe-maintainers:
     - epruesse
+    - mfansler 
+    - martin-g
