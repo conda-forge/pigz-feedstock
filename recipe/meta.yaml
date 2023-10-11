@@ -33,7 +33,7 @@ test:
 
 about:
   home: https://zlib.net/pigz/
-  license: zlib
+  license: Zlib
   license_family: other
   license_file: README
   summary: Parallel implementation of gzip
