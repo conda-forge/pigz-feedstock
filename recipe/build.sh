@@ -17,7 +17,9 @@ if [ -z "$CC" ]; then
 fi
 
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
-make test
+if [ "${CONDA_BUILD_CROSS_COMPILATION}" -ne "1" ]; then
+    make test
+fi
 
 # Use different variable to get "binprefix" on win:
 if [ -n "$LIBRARY_BIN" ]; then
