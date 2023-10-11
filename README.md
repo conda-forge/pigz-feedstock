@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pigz-feedstock/
 
 Home: https://zlib.net/pigz/
 
-Package license: zlib
+Package license: Zlib
 
 Summary: Parallel implementation of gzip
 
