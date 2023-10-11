@@ -1,13 +1,12 @@
-{% set name = "pigz" %}
 {% set version = "2.6" %}
 {% set sha256 = "577673676cd5c7219f94b236075451220bae3e1ca451cf849947a2998fbf5820" %}
 
 package:
-  name: {{ name }}
+  name: pigz
   version: {{ version }}
 
 source:
-  url: https://github.com/madler/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/madler/pigz/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
