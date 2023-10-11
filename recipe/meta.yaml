@@ -23,8 +23,6 @@ requirements:
   host:
     - pthreads-win32             # [win]
     - zlib
-  run:
-    - zlib
 
 test:
   commands:
