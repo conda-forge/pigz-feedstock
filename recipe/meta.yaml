@@ -11,6 +11,7 @@ source:
 
 build:
   number: 1
+  skip: true  # [not win]
 
 requirements:
   build:
@@ -18,10 +19,13 @@ requirements:
     - {{ stdlib("c") }}          # [unix]
     - {{ compiler("m2w64_c") }}  # [win]
     - {{ stdlib("m2w64_c") }}    # [win]
-    - m2-base                      # [win]
-    - make                       # [unix]
+    - m2-base                    # [win]
+    - {{ posix }}filesystem      # [win]
+    - {{ posix }}make
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
-    - pthreads-win32             # [win]
     - zlib
 
 test:
