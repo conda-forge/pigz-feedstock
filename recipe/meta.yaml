@@ -18,9 +18,8 @@ requirements:
     - {{ stdlib("c") }}          # [unix]
     - {{ compiler("m2w64_c") }}  # [win]
     - {{ stdlib("m2w64_c") }}    # [win]
-    - posix                      # [win]
     - make
-    - m2-base                    # [win]
+    - {{ posix }}base            # [win]
     - {{ posix }}filesystem      # [win]
     - {{ posix }}sed             # [win]
     - {{ posix }}coreutils       # [win]
