@@ -16,6 +16,12 @@ if [ -z "$CC" ]; then
     export CC="gcc"
 fi
 
+# Fix some flags on Windows
+if [[ ${target_platform} =~ .*win.* ]]; then
+   LDFLAGS="${LDFLAGS} -L${PREFIX}/Library/lib"
+   CFLAGS="${CFLAGS} -I${PREFIX}/Library/include"
+fi
+
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" -ne "1" ]; then
     make test
