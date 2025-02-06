@@ -28,6 +28,8 @@ fi
 # temporary debug
 find ${PREFIX} -name "*zlib*"
 
+cat ${PREFIX}/Library/lib/pkgconfig/zlib.pc
+
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" -ne "1" ]; then
     make test
