@@ -21,13 +21,10 @@ fi
 # Fix some flags on Windows
 if [[ ${target_platform} =~ .*win.* ]]; then
    export PKG_CONFIG_PATH="${PREFIX}/Library/lib/pkgconfig"
-   LDFLAGS="${LDFLAGS} -L${PREFIX}/Library/lib $(pkg-config --libs zlib)"
-   CFLAGS="${CFLAGS} -I${PREFIX}/Library/include"
-   export C_INCLUDE_PATH="${C_INCLUDE_PATH}:${PREFIX}/Library/include"
+   LDFLAGS="${LDFLAGS} $(pkg-config --libs zlib)"
+   CFLAGS="${CFLAGS} $(pkg-config --cflags zlib)"
+   export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pkg-config --cflags zlib)"
 fi
-
-# temporary debug
-find ${PREFIX} -name "*zlib*"
 
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
 if [ "${CONDA_BUILD_CROSS_COMPILATION}" -ne "1" ]; then
