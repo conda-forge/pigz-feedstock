@@ -24,6 +24,7 @@ requirements:
     - {{ posix }}sed             # [win]
     - {{ posix }}coreutils       # [win]
     - {{ posix }}zip             # [win]
+    - {{ posix }}pkg-config      # [win]
   host:
     - zlib
 
