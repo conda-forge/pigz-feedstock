@@ -22,6 +22,8 @@ fi
 if [[ ${target_platform} =~ .*win.* ]]; then
    LDFLAGS="${LDFLAGS} -L${PREFIX}/Library/lib"
    CFLAGS="${CFLAGS} -I${PREFIX}/Library/include"
+   export C_INCLUDE_PATH="${C_INCLUDE_PATH}:${PREFIX}/Library/include"
+   export CPATH="${CPATH}:${PREFIX}/Library/include"
 fi
 
 # temporary debug
