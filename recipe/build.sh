@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -xe
+
 # Adopt a Unix-friendly path if we're on Windows (see bld.bat).
 [ -n "$PATH_OVERRIDE" ] && export PATH="$PATH_OVERRIDE"
 
@@ -14,6 +16,14 @@ export TARGET_ARCH=
 # Set `CC` on Windows where it is not set already.
 if [ -z "$CC" ]; then
     export CC="gcc"
+fi
+
+# Fix some flags on Windows
+if [[ ${target_platform} =~ .*win.* ]]; then
+   export PKG_CONFIG_PATH="${PREFIX}/Library/lib/pkgconfig"
+   LDFLAGS="${LDFLAGS} $(pkg-config --libs zlib)"
+   CFLAGS="${CFLAGS} $(pkg-config --cflags zlib)"
+   export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pkg-config --cflags zlib)"
 fi
 
 make -j$CPU_COUNT CC="$CC" LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS"
