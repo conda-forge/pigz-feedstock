@@ -17,9 +17,10 @@ build:
 requirements:
   build:
     - if: unix
-      then: 
+      then:
         - ${{ compiler("c") }}
         - ${{ stdlib("c") }}
+        - make
       else:
         - ${{ compiler("m2w64_c") }}
         - ${{ stdlib("m2w64_c") }}
@@ -28,8 +29,8 @@ requirements:
         - m2-sed
         - m2-coreutils
         - m2-zip
+        - m2-make
         - m2-pkg-config
-    - make
   host:
     - zlib
 
